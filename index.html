@@ -13,14 +13,29 @@
             padding: 0;
         }
 
-        header {
+        .header-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
             background-color: #2c3e50;
             color: white;
-            padding: 20px;
+            padding: 15px;
         }
 
-        img {
-            margin-top: 15px;
+        .logo {
+            width: 70px;
+            height: 70px;
+        }
+
+        .title-text h1 {
+            margin: 0;
+            font-size: 20px;
+        }
+
+        .title-text p {
+            margin: 0;
+            font-size: 14px;
         }
 
         .section {
@@ -51,16 +66,22 @@
             padding: 10px;
             margin-top: 20px;
         }
+
+        .views h5 {
+            margin-bottom: 5px;
+        }
     </style>
 </head>
 
 <body>
 
-<header>
-    <h1>College of Computing Studies, Information and Communication Technology</h1>
+<header class="header-container">
+    <img src="pic/ccsictpic.png" alt="Department Logo" class="logo">
+    <div class="title-text">
+        <h1>College of Computing Studies, Information and Communication Technology</h1>
+        <p>Isabela State University – Cabagan Campus</p>
+    </div>
 </header>
-
-<img src="ccsictpic.png" alt="Department Logo" width="250">
 
 <div class="section">
     <h2>Department Information</h2>
@@ -104,7 +125,7 @@
     <ul>
         <li>Mr. Alvin Bangloy – Laboratory Technician</li>
         <li>Mr. Gerald Sarmiento – Utility Worker</li>
-        <li>Ms. Ethel – Office Staff</li> 
+        <li>Ms. Ethel – Office Staff</li>
     </ul>
 </div>
 
@@ -117,6 +138,7 @@
         <h5>Total Views:</h5>
         <script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/1505670/t/3"></script>
     </div>
+</div>
 
 <footer>
     © 2026 CCSICT Department | Isabela State University – Cabagan Campus
@@ -124,8 +146,3 @@
 
 </body>
 </html>
-
-
-
-
-
