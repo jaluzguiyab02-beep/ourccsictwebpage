@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>CCSICT Department</title>
+    <title>CCSICT DEPARTMENT</title>
 
     <style>
         body {
@@ -11,6 +11,7 @@
             text-align: center;
             margin: 0;
             padding: 0;
+            scroll-behavior: smooth;
         }
 
         .header-container {
@@ -18,7 +19,7 @@
             align-items: center;
             justify-content: center;
             gap: 15px;
-            background-color: #2c3e50;
+            background: linear-gradient(90deg, #555, #6c8ebf);
             color: white;
             padding: 15px;
         }
@@ -38,30 +39,51 @@
             font-size: 14px;
         }
 
+        nav {
+            background-color: #444;
+            padding: 10px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #d1d1d1;
+        }
+
         .section {
             background: white;
             margin: 20px auto;
             padding: 20px;
             width: 80%;
             border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            box-shadow: 0 0 10px rgba(0,0,0,0.08);
             text-align: left;
+            border-left: 6px solid #6c8ebf;
         }
 
         h2 {
-            color: #2c3e50;
-            border-bottom: 2px solid #ddd;
+            color: #555;
+            border-bottom: 2px solid #ccc;
             padding-bottom: 5px;
         }
 
         a {
-            color: #0b63c9;
+            color: #6c8ebf;
             text-decoration: none;
             font-weight: bold;
         }
 
+        a:hover {
+            color: #333;
+        }
+
         footer {
-            background-color: #2c3e50;
+            background-color: #555;
             color: white;
             padding: 10px;
             margin-top: 20px;
@@ -69,6 +91,7 @@
 
         .views h5 {
             margin-bottom: 5px;
+            color: #555;
         }
     </style>
 </head>
@@ -83,7 +106,15 @@
     </div>
 </header>
 
-<div class="section">
+<nav>
+    <a href="#info">Home</a>
+    <a href="#mission">Mission & Vision</a>
+    <a href="#faculty">Faculty</a>
+    <a href="#staff">Staff</a>
+    <a href="#contact">Contact</a>
+</nav>
+
+<div id="info" class="section">
     <h2>Department Information</h2>
     <p><b>School:</b> Isabela State University - Cabagan Campus</p>
     <p><b>Location:</b> Catabayungan, Cabagan, Isabela</p>
@@ -91,7 +122,7 @@
     <p><b>Description:</b> The CCSICT Department focuses on technology education, programming, networking, and digital skills to prepare students for future IT careers.</p>
 </div>
 
-<div class="section">
+<div id="mission" class="section">
     <h2>Mission</h2>
     <p>A leading Research University in the ASEAN Region.</p>
 
@@ -99,7 +130,7 @@
     <p>The Isabela State University is committed to developing globally competitive human and technological resources through quality instruction, innovative research, community engagement, and sustainable development.</p>
 </div>
 
-<div class="section">
+<div id="faculty" class="section">
     <h2>Administration & Faculty</h2>
     <p><b>Dean:</b> Prof. Rosemary L. Buraga</p>
     <p><b>Information Technology Program Chair:</b> Prof. Dominic C. Cabauatan</p>
@@ -120,7 +151,7 @@
     </ul>
 </div>
 
-<div class="section">
+<div id="staff" class="section">
     <h2>Staff</h2>
     <ul>
         <li>Mr. Alvin Bangloy – Laboratory Technician</li>
@@ -129,7 +160,7 @@
     </ul>
 </div>
 
-<div class="section" style="text-align:center;">
+<div id="contact" class="section" style="text-align:center;">
     <a href="https://www.facebook.com/CCSICTCabagan" target="_blank">
         Visit Our Official Facebook Page
     </a>
@@ -146,4 +177,3 @@
 
 </body>
 </html>
-
