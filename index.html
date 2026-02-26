@@ -1,153 +1,169 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>CCSICT Department Webpage</title>
-
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f6f7;
-            text-align: center;
-            margin: 0;
-            padding: 0;
-        }
-
-        .header-container {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 15px;
-            background: linear-gradient(90deg, #555, #6c8ebf);
-            color: white;
-            padding: 15px;
-        }
-
-        .logo {
-            width: 70px;
-            height: 70px;
-        }
-
-        .title-text h1 {
-            margin: 0;
-            font-size: 20px;
-        }
-
-        .title-text p {
-            margin: 0;
-            font-size: 14px;
-        }
-
-        .section {
-            background: white;
-            margin: 20px auto;
-            padding: 20px;
-            width: 80%;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.08);
-            text-align: left;
-            border-left: 6px solid #6c8ebf;
-        }
-
-        h2 {
-            color: #555;
-            border-bottom: 2px solid #ccc;
-            padding-bottom: 5px;
-        }
-
-        a {
-            color: #6c8ebf;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        a:hover {
-            color: #333;
-        }
-
-        footer {
-            background-color: #555;
-            color: white;
-            padding: 10px;
-            margin-top: 20px;
-        }
-
-        .views h5 {
-            margin-bottom: 5px;
-            color: #555;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CCSICT Department</title>
+<style>
+body { margin:0; font-family: Arial, sans-serif; background: linear-gradient(to bottom,#1f2f46,#6b7a8f); color: #fff; }
+header { display:flex; justify-content:space-between; align-items:center; background: linear-gradient(90deg,#0b1c35,#1c2d4a); padding:15px 30px; box-shadow:0 3px 15px rgba(0,0,0,0.3); }
+.header-left { display:flex; align-items:center; gap:10px; }
+.header-left img { width:60px; height:60px; border-radius:50%; object-fit:cover; }
+header h1 { margin:0; font-size:22px; letter-spacing:1px; line-height:1.2; }
+nav { background:#0f1b2e; text-align:center; }
+nav button { background:none; border:none; color:white; padding:15px 25px; font-size:16px; cursor:pointer; transition:0.3s; }
+nav button:hover, nav button.active { background:#243b5a; }
+main { padding:40px 20px; position:relative; }
+.section { display:none; opacity:0; transform:translateY(20px); transition:opacity .7s ease, transform .7s ease; }
+.section.show { display:block; opacity:1; transform:translateY(0); }
+.hero { max-width:900px; margin:auto; padding:60px 30px; border-radius:15px; background: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5)), url('department_building.jpg'); background-size: cover; background-position: center; box-shadow:0 8px 30px rgba(0,0,0,0.4); animation: fadeIn 1.2s ease forwards; }
+.hero h2 { font-size:32px; margin-bottom:15px; text-align:center; opacity:0; animation: fadeInText 1.2s ease forwards; }
+.hero p { font-size:18px; color:#e0e0e0; opacity:0; animation: fadeInText 1.4s ease forwards; }
+@keyframes fadeInText { to { opacity:1; } }
+.info-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:20px; margin-top:30px; }
+.info-box { background: rgba(255,255,255,0.12); padding:20px; border-radius:12px; opacity:0; transform:translateY(20px); animation: fadeInBox 1s forwards; text-align:left; }
+.info-box:nth-child(1) { animation-delay:0.3s; }
+.info-box:nth-child(2) { animation-delay:0.6s; }
+.info-box:nth-child(3) { animation-delay:0.9s; }
+@keyframes fadeInBox { to { opacity:1; transform:translateY(0); } }
+.stats { display:flex; justify-content:center; flex-wrap:wrap; gap:20px; margin-top:30px; }
+.stat-box { background:#1c2d4a; color:white; padding:25px 35px; border-radius:12px; text-align:center; min-width:150px; box-shadow:0 8px 20px rgba(0,0,0,0.4); transition:.3s; }
+.stat-box:hover { transform:translateY(-6px); background:#243a63; }
+.stat-box h2 { margin:0; font-size:32px; color:#9fb8ff; }
+.card-container { display:flex; flex-wrap:wrap; justify-content:center; gap:20px; margin-top:20px; }
+.card { background:#ffffff; color:#222; width:260px; padding:20px; border-radius:12px; box-shadow:0 6px 14px rgba(0,0,0,0.25); transition:0.3s; opacity:0; transform:translateY(20px); animation: fadeInBox 1s forwards; text-align:center; }
+.card:nth-child(1) { animation-delay:0.3s; }
+.card:nth-child(2) { animation-delay:0.5s; }
+.card:nth-child(3) { animation-delay:0.7s; }
+.card:nth-child(4) { animation-delay:0.9s; }
+.card:nth-child(5) { animation-delay:1.1s; }
+.card:nth-child(6) { animation-delay:1.3s; }
+.card img { width:80px; height:80px; border-radius:50%; display:block; margin:0 auto 10px; object-fit:cover; }
+footer { background:#0f1b2e; text-align:center; padding:15px; font-size:14px; }
+@media(max-width:768px){ .card-container { flex-direction:column; align-items:center; } .info-grid { grid-template-columns:1fr; } }
+@keyframes fadeIn { from {opacity:0;} to {opacity:1;} }
+</style>
+<script>
+function showSection(id){
+    document.querySelectorAll('.section').forEach(sec=>sec.classList.remove('show'));
+    document.getElementById(id).classList.add('show');
+    document.querySelectorAll('nav button').forEach(btn=>btn.classList.remove('active'));
+    document.querySelector(`nav button[onclick="showSection('${id}')"]`).classList.add('active');
+}
+</script>
 </head>
-
 <body>
 
-<header class="header-container">
-    <img src="ccsictpic.png" alt="Department Logo" class="logo">
-    <div class="title-text">
+<header>
+    <div class="header-left">
+        <img src="pic/isu_logo.jfif" alt="ISU Logo">
+        <img src="pic/ccsict_logo.jfif" alt="CCSICT Logo">
         <h1>College of Computing Studies, Information and Communication Technology</h1>
-        <p>Isabela State University – Cabagan Campus</p>
     </div>
 </header>
 
-<div class="section">
-    <h2>Department Information</h2>
-    <p><b>School:</b> Isabela State University - Cabagan Campus</p>
-    <p><b>Location:</b> Catabayungan, Cabagan, Isabela</p>
-    <p><b>Established:</b> 1978</p>
-</div>
+<nav>
+    <button class="active" onclick="showSection('home')">Home</button>
+    <button onclick="showSection('about')">About</button>
+    <button onclick="showSection('programs')">Programs</button>
+    <button onclick="showSection('faculty')">Faculty</button>
+    <button onclick="showSection('contact')">Contact</button>
+</nav>
 
-<div class="section">
-    <h2>Mission</h2>
-    <p>A leading Research University in the ASEAN Region.</p>
-
-    <h2>Vision</h2>
-    <p>The Isabela State University is committed to developing globally competitive human and technological resources through quality instruction, innovative research, community engagement, and sustainable development.</p>
-</div>
-
-<div class="section">
-    <h2>Administration & Faculty</h2>
-    <p><b>Dean:</b> Prof. Rosemary L. Buraga</p>
-    <p><b>Information Technology Program Chair:</b> Prof. Dominic C. Cabauatan</p>
-    <p><b>Computer Science Program Chair:</b> Prof. Amy Lyn M. Maddalora</p>
-    <p><b>Faculty Members:</b></p>
-    <ul>
-        <li>Prof. Ike Tapitan</li>
-        <li>Prof. Vince Lloyd Balisi</li>
-        <li>Prof. Lyle Jan Tarun</li>
-        <li>Prof. Daryll Paguirigan</li>
-        <li>Prof. Mario Umayam</li>
-        <li>Prof. Heherson Albano</li>
-        <li>Prof. Ivy Tarun</li>
-        <li>Prof. Madeline Taggueg</li>
-        <li>Prof. Via Fugaban</li>
-        <li>Prof. Othniel Gatan</li>
-    </ul>
-</div>
-
-<div class="section">
-    <h2>Staff</h2>
-    <ul>
-        <li>Mr. Alvin Bangloy – Laboratory Technician</li>
-        <li>Mr. Gerald Sarmiento – Utility Worker</li>
-        <li>Ms. Ethel – Office Staff</li>
-    </ul>
-</div>
-
-<div class="section" style="text-align:center;">
-    <a href="https://www.facebook.com/CCSICTCabagan" target="_blank">
-        Visit Our Official Facebook Page
-    </a>
-
-    <div class="views">
-        <h5>Total Views:</h5>
-        <script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/1505670/t/3"></script>
+<main>
+<section id="home" class="section show">
+    <div class="hero">
+        <h2>Welcome to CCSICT</h2>
+        <p style="text-align:center;"> Empowering future innovators, programmers, and technology leaders with technical expertise, creativity, and strong ethical values.</p>
+        <div class="info-grid">
+            <div class="info-box">
+                <h3>Vision</h3>
+                <p>A leading Research University in the ASEAN Region.</p>
+            </div>
+            <div class="info-box">
+                <h3>Mission</h3>
+                <p>The Isabela State University is committed to develop globally competitive human, technological resources and services through quality instruction, innovative research, responsive community engagement and viable resource management programs for inclusive growth and sustainable development.</p>
+            </div>
+        </div>
+        <div class="stats">
+            <div class="stat-box"><h2>3</h2><p>Degree Programs</p></div>
+            <div class="stat-box"><h2>16+</h2><p>Faculty & Staff</p></div>
+            <div class="stat-box"><h2>100%</h2><p>Student Focus</p></div>
+        </div>
     </div>
-</div>
+</section>
 
-<footer>
-    © 2026 CCSICT Department | Isabela State University – Cabagan Campus
-</footer>
+<section id="about" class="section">
+    <div class="hero" style="background: linear-gradient(rgba(0,0,0,.6), rgba(0,0,0,.6)), url('department_building.jpg'); background-size:cover; background-position:center;">
+        <div style="margin:30px auto; text-align:center;">
+            <h2>About the Department</h2>
+            <img src="pic/department_building.jpg" alt="Department Building" style="max-width:80%; border-radius:15px; box-shadow:0 6px 20px rgba(0,0,0,0.4);">
+            <p style="text-align:center;">Established in 1978, the College of Computing Studies, Information and Communication Technology (CCSICT) at Isabela State University – Cabagan Campus provides high-quality education in computing and information technology. The department aims to produce graduates who are globally competitive, innovative, and socially responsible.</p>
+            <div class="info-grid">
+                <div class="info-box">
+                    <h3>QUALITY POLICY</h3>
+                    <p>The Isabela State University endeavors to be a lead university in instruction, research, extension and resource generation through continuous improvement of services and commits to comply with the standards set by statutory, regulatory and accreditation bodies.</p>
+                    <p>To uphold this commitment, ISU shall attain the following quality objectives:</p>
+                    <ol style="text-align:left; margin-left:20px;">
+                        <li>Sustain academic excellence and quality in instruction;</li>
+                        <li>Generate research breakthroughs;</li>
+                        <li>Engage in sectoral activities for community development;</li>
+                        <li>Develop products for glocalization;</li>
+                        <li>Support students’ participation to local and international fora to enhance their potentialities; and</li>
+                        <li>Review on periodic basis, the Quality Management System (QMS) and gather feedbacks on the level of client satisfaction as basis for continual improvement.</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
+<section id="programs" class="section">
+    <div class="hero" style="background: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5)), #1c2d4a;">
+        <h2>Academic Programs</h2>
+        <div class="info-grid">
+            <div class="info-box">
+                <h3>Bachelor of Science in Information Technology (BSIT)</h3>
+                <p>Focus Areas: Networking, Web Development, Database Management, System Administration</p>
+                <p>Career Paths: Network Administrator, Web Developer, IT Support Specialist, Systems Analyst</p>
+            </div>
+            <div class="info-box">
+                <h3>Bachelor of Science in Computer Science (BSCS)</h3>
+                <p>Focus Areas: Programming, Software Development, Artificial Intelligence, Algorithms</p>
+                <p>Career Paths: Software Engineer, AI Developer, Data Scientist, Software Architect</p>
+            </div>
+            <div class="info-box">
+                <h3>Bachelor of Science in Data Science and Analytics (BSDSA)</h3>
+                <p>Focus Areas: Data Analysis, Machine Learning, Business Analytics, Big Data</p>
+                <p>Career Paths: Data Analyst, Data Scientist, Business Intelligence Analyst, ML Engineer</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="faculty" class="section">
+    <h2>Faculty & Staff</h2>
+    <div class="card-container">
+        <div class="card"><img src="prof_buraga.jpg" alt="Prof. Rosemary L. Buraga"><h3>Prof. Rosemary L. Buraga</h3><p>Dean</p></div>
+        <div class="card"><img src="prof_cabauatan.jpg" alt="Prof. Dominic C. Cabauatan"><h3>Prof. Dominic C. Cabauatan</h3><p>IT Program Chair</p></div>
+        <div class="card"><img src="prof_maddalora.jpg" alt="Prof. Amy Lyn M. Maddalora"><h3>Prof. Amy Lyn M. Maddalora</h3><p>CS Program Chair</p></div>
+        <div class="card"><img src="prof_tapitan.jpg" alt="Prof. Ike Tapitan"><h3>Prof. Ike Tapitan</h3><p>Faculty Member</p></div>
+        <div class="card"><img src="mr_bangloy.jpg" alt="Mr. Alvin Bangloy"><h3>Mr. Alvin Bangloy</h3><p>Laboratory Technician</p></div>
+        <div class="card"><img src="ms_ethel.jpg" alt="Ms. Ethel Grace Cammagay"><h3>Ms. Ethel Grace Cammagay</h3><p>Office Staff</p></div>
+    </div>
+</section>
+
+<section id="contact" class="section">
+    <div class="hero">
+        <h2>Contact Information</h2>
+        <p>Email: ccsict@isu.edu.ph</p>
+        <p>Office Hours: Monday – Friday | 8:00 AM – 5:00 PM</p>
+        <p>Location: CCSICT Department, ISU - Cabagan Campus, Catabayungan, Cabagan, Isabela</p>
+        <p><a href="https://www.facebook.com/CCSICTCabagan" target="_blank" style="color:#4CAF50;">Visit Official Facebook Page</a></p>
+    </div>
+</section>
+
+</main>
+<footer>© 2026 CCSICT Department | Isabela State University – Cabagan Campus</footer>
 </body>
 </html>
-
