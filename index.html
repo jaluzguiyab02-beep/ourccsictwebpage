@@ -16,7 +16,7 @@ nav button:hover, nav button.active { background:#243b5a; }
 main { padding:40px 20px; position:relative; }
 .section { display:none; opacity:0; transform:translateY(20px); transition:opacity .7s ease, transform .7s ease; }
 .section.show { display:block; opacity:1; transform:translateY(0); }
-.hero { max-width:900px; margin:auto; padding:60px 30px; border-radius:15px; background: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5)), url('department_building.jpg'); background-size: cover; background-position: center; box-shadow:0 8px 30px rgba(0,0,0,0.4); animation: fadeIn 1.2s ease forwards; }
+.hero { max-width:900px; margin:auto; padding:60px 30px; border-radius:15px; background: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5)); box-shadow:0 8px 30px rgba(0,0,0,0.4); animation: fadeIn 1.2s ease forwards; }
 .hero h2 { font-size:32px; margin-bottom:15px; text-align:center; opacity:0; animation: fadeInText 1.2s ease forwards; }
 .hero p { font-size:18px; color:#e0e0e0; opacity:0; animation: fadeInText 1.4s ease forwards; }
 @keyframes fadeInText { to { opacity:1; } }
@@ -52,6 +52,26 @@ main { padding:40px 20px; position:relative; }
 footer { background:#0f1b2e; text-align:center; padding:15px; font-size:14px; }
 @media(max-width:768px){ .card-container { flex-direction:column; align-items:center; } .info-grid { grid-template-columns:1fr; } }
 @keyframes fadeIn { from {opacity:0;} to {opacity:1;} }
+
+#programs .info-box {
+    position: relative;
+    overflow: hidden;
+    border-left: 4px solid #9fb8ff;
+    transition: 0.3s ease;
+    margin-bottom: 15px;   /* ← DITO mo ilalagay */
+}
+
+#programs .info-box:hover {
+    box-shadow: 0 4px 15px rgba(159,184,255,0.3);
+    transform: translateY(-4px);
+}
+
+.course-icon {
+    font-size: 28px;
+    margin-bottom: 8px;
+    display: block;
+}
+
 </style>
 <script>
 function showSection(id){
@@ -66,8 +86,8 @@ function showSection(id){
 
 <header>
     <div class="header-left">
-        <img src="pic/isu_logo.jfif" alt="ISU Logo">
-        <img src="pic/ccsict_logo.jfif" alt="CCSICT Logo">
+        <img src="isu_logo.jfif" alt="ISU Logo">
+        <img src="ccsict_logo.jfif" alt="CCSICT Logo">
         <h1>College of Computing Studies, Information and Communication Technology</h1>
     </div>
 </header>
@@ -107,7 +127,7 @@ function showSection(id){
     <div class="hero" style="background: linear-gradient(rgba(0,0,0,.6), rgba(0,0,0,.6));">
         <div style="margin:30px auto; text-align:center;">
             <h2>About the Department</h2>
-            <img src="pic/department_building.jpg" alt="Department Building" style="max-width:80%; border-radius:15px; box-shadow:0 6px 20px rgba(0,0,0,0.4);">
+            <img src="department_building.jpg" alt="Department Building" style="max-width:80%; border-radius:15px; box-shadow:0 6px 20px rgba(0,0,0,0.4);">
             <p style="text-align:center;">Established in 1978, the College of Computing Studies, Information and Communication Technology (CCSICT) at Isabela State University – Cabagan Campus provides high-quality education in computing and information technology. The department aims to produce graduates who are globally competitive, innovative, and socially responsible.</p>
             <div class="info-grid">
                 <div class="info-box">
